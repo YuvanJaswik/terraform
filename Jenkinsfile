@@ -5,13 +5,13 @@ pipeline {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
      }
-         stages {
-        stage('Clone repository') {
-            steps {
-                git 'https://github.com/YuvanJaswik/terraform.git/'
-            }
-        }
-        stage('Terraform Init') {
+        stages {
+         stage ('Git Checkout') {
+                   steps {
+                     git branch: 'main', url: 'https://github.com/YuvanJaswik/terraform.git'
+                     }
+                  }
+           stage('Terraform Init') {
             steps {
                 sh 'terraform init'
             }
