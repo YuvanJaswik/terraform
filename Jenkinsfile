@@ -8,7 +8,7 @@ pipeline {
          stages {
         stage('Clone repository') {
             steps {
-                git clone 'https://github.com/YuvanJaswik/terraform.git/'
+                git 'https://github.com/YuvanJaswik/terraform.git/'
             }
         }
         stage('Terraform Init') {
